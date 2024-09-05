@@ -7,8 +7,8 @@ const Footer = () => {
         <div>
 
             <footer className="mt-10 bg-sky-950 text-white">
-                <div className=" py-8">
-                    <div className="flex flex-wrap ml-10 justify-center">
+                <div className=" py-8 container mx-auto px-4">
+                    <div className="flex flex-wrap justify-center">
                         <div className="w-full md:w-1/5 mb-8 md:mb-0">
                             <Link to='/' >
                                 <div className='flex flex-col items-center gap-2'>
