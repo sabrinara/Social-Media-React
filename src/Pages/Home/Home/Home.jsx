@@ -14,12 +14,12 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>Phi Book | Home</title>
+                <title>SocioLife | Home</title>
             </Helmet>
 
             {/* Hello {user?.email} */}
 
-            <div className="bg-gray-100 ">
+            <div className=" ">
                 <Banner />
 
                 <TopLikedPosts />

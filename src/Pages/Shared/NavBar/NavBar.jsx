@@ -41,7 +41,14 @@ const NavBar = () => {
                         </ul>
                     </div>
 
-                    <Link to='/' className="btn btn-ghost normal-case text-xl text-white">Social Canvas</Link>
+                    <Link to='/' >
+                    <div className='flex items-center gap-2'>
+                        <img src="./logo.png" alt="logo" className='w-10 ' />
+                        <h1 className="text-xl font-bold">
+                            <span className="text-sky-500">S</span><span className="text-green-500">o</span><span className="text-red-500">c</span><span className="text-yellow-400">i</span><span className="text-teal-300">o</span><span className="text-orange-500">L</span><span className="text-violet-400">i</span><span className="text-blue-300">f</span><span className="text-amber-500">e</span></h1>
+                            
+                    </div>
+                    </Link>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">

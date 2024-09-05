@@ -1,18 +1,24 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
+import ani from '../../../../public/Animation - 1725563979597.json';
 
 const Banner = () => {
     return (
-        <section className="bg-blue-500 py-12">
-            <div className="container mx-auto px-4">
-                <div className="text-center text-white">
-                    <h1 className="text-4xl font-bold mb-4">Connect with Your Community</h1>
+        <section className="bg-sky-950 py-12 h-[100vh]  md:h-[80vh] ">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div className="w-full md:w-1/2 px-4 md:ml-10 md:mb-20 text-center md:text-start">
+                    <h1 className="text-sm font-bold uppercase tracking-widest mb-2 hidden md:block">SocioLife</h1>
+                    <h1 className="text-4xl font-bold mb-4">Our Platform for Connect with Your Community</h1>
                     <p className="text-lg mb-8">Join the conversation, share your moments!</p>
                     <Link to="/signUp">
-                        <button className="bg-white text-blue-800 font-bold py-3 px-6 rounded-full hover:bg-white hover:text-blue-800 transition duration-300 ease-in-out">
+                        <button className="bg-white text-sky-800 font-bold py-3 px-6 rounded-full hover:bg-white hover:text-blue-800 transition duration-300 ease-in-out">
                             Join Now
                         </button>
                     </Link>
+                </div>
+                <div className='w-full md:w-1/2 '>
+                    <Lottie loop={true} animationData={ani} className='md:h-[78vh]' />
                 </div>
             </div>
         </section>
