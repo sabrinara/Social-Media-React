@@ -70,27 +70,10 @@ const SignUp = () => {
                 },
             });
 
-            // const response = await axios.post('https://social-media-drf.onrender.com/accounts/register/', {
-            //     headers: {
-            //         'Content-Type': 'multipart/form-data',
-            //     },
-            // });
-
-            // console.log('postData', postData)
-
-            // Handle the response as needed
-            // console.log('Form submitted Response:', response.data);
-
             sweetAlert.showUserCreatedSuccessAlert();
-
-
             logOutAfterSignUp();
             navigate('/login');
-
-            // You may want to redirect or perform other actions after successful submission
-            // navigate('/login');
         } catch (error) {
-            // Handle errors, log them, etc.
             console.error('Error submitting form:', error);
         }
     };
@@ -232,7 +215,6 @@ const SignUp = () => {
                                 type="file"
                                 id="profile_pic"
                                 {...register('profile_pic')}
-                                // onChange={handleImageUpload}  // Handle image upload
                                 className={`mt-1 p-2 w-full border rounded ${errors.profile_pic ? 'border-red-500' : ''}`}
                             />
                             {errors.profile_pic && <p className="text-red-500 text-xs mt-1">{errors.profile_pic.message}</p>}
