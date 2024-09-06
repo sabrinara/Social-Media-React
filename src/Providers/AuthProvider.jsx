@@ -136,6 +136,7 @@ const AuthProvider = ({ children }) => {
                 console.log('No User');
             } else {
                 console.log('Logged in user');
+
             }
             setUser(loggedUser);
 

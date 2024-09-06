@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddPost = () => {
     const [content, setContent] = useState('');
@@ -33,6 +34,7 @@ const AddPost = () => {
             if (response.status === 201) {
                 console.log('Post added successfully');
                 // Handle success (e.g., redirect, show a success message)
+                toast.success('Post added successfully');
                 navigate('/posts/myPosts');
             } else {
                 console.error('Failed to add post');
@@ -44,12 +46,16 @@ const AddPost = () => {
     };
 
     return (
-        <div>
-            <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}>
-                <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Add a New Post</h2>
-                <form onSubmit={onSubmit}>
-                    <label htmlFor="content">Content:</label>
+        <div className='mt-20'>
+            <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}
+            className=''
+            >
+                <h2 style={{ textAlign: 'center', marginBottom: '20px' }} className='text-3xl'>Add a New Post</h2>
+               <div className='md:px-10 '>
+               <form onSubmit={onSubmit}>
+                    <label className='block mb-2' htmlFor="content">Content:</label>
                     <textarea
+                    className='bg-gray-800'
                         id="content"
                         name="content"
                         value={content}
@@ -58,7 +64,7 @@ const AddPost = () => {
                         style={{ width: '100%', marginBottom: '10px', padding: '8px', borderRadius: '4px' }}
                     />
 
-                    <label htmlFor="image">Image:</label>
+                    <label className='block mb-2' htmlFor="image">Image:</label>
                     <input
                         type="file"
                         id="image"
@@ -80,13 +86,17 @@ const AddPost = () => {
                         style={{ width: '100%', marginBottom: '10px', padding: '8px', borderRadius: '4px' }}
                     /> */}
 
-                    <button
+                  <div className='flex justify-center'>
+                  <button
                         type="submit"
-                        style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 15px', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                       
+                    className='text-sky-900 font-bold bg-white  px-20 py-2 mt-6 mb-10 rounded'
                     >
                         Add Post
                     </button>
+                  </div>
                 </form>
+               </div>
             </div>
         </div>
     );

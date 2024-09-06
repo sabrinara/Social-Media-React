@@ -12,7 +12,7 @@ const Dashboard = () => {
 
             <DashNavBar />
 
-            <div className="flex bg-sky-950">
+            <div className="flex bg-sky-950 h-screen">
                 {/* Left Side */}
                 <div className="md:w-1/6 bg-black md:p-4">
                     {/* Add content for the left side */}
