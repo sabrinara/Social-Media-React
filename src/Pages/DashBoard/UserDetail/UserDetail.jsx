@@ -11,10 +11,10 @@ const UserDetail = () => {
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
-                
+
                 const response = await axios.get('https://social-media-drf.onrender.com/accounts/user_detail/', {
                     headers: {
-                       
+
                         Authorization: `Token ${token}`,
                     },
                 });
@@ -37,15 +37,15 @@ const UserDetail = () => {
             </div>
 
             {userData ? (
-                
+
                 <div className="flex flex-col md:flex-row justify-center items-center pb-10 gap-10">
                     <div>
-                    {userData.profile_pic && (
-                        <div>
-                           
-                            <img src={`https://social-media-drf.onrender.com/media/${userData.profile_pic}`} alt="Profile" className='w-40 md:w-80 rounded-full md:rounded' />
-                        </div>
-                    )}
+                        {userData.profile_pic && (
+                            <div>
+
+                                <img src={`https://social-media-drf.onrender.com/media/${userData.profile_pic}`} alt="Profile" className='w-48 md:w-80 rounded-full md:rounded' />
+                            </div>
+                        )}
                     </div>
                     <div className='text-xl'>
                         <p className="mb-2">Email: {userData.email}</p>
@@ -53,12 +53,22 @@ const UserDetail = () => {
                         <p className="mb-2">Last Name: {userData.last_name}</p>
                         <p className="mb-2">Birth Date: {userData.birth_date}</p>
                         <p className="mb-2">Gender: {userData.gender}</p>
+                        {
+                            userData.division ? <p className="mb-2">Division: {userData.division}</p> : <p className='mb-2'>Division: Not set yet, Update</p>
+                        }
+                        {
+                            userData.district ? <p className="mb-2">District: {userData.district}</p> : <p className='mb-2'>District: Not set yet, Update</p>
+                        }
+                        {
+                            userData.phone ? <p className="mb-2">Phone: {userData.phone}</p> : <p className='mb-2'>Phone: Not set yet, Update</p>
+                        }
+
                     </div>
 
-                   
 
 
-                    
+
+
                 </div>
             ) : (
                 <p>Loading user details...</p>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const UpdateUserForm = () => {
@@ -20,11 +21,9 @@ const UpdateUserForm = () => {
             headers: {
                 Authorization: `Token ${token}`,
             },
-        })  // Replace with your API endpoint
+        })
             .then(response => {
-                const user = response.data;  // Assuming your API returns user details
-                // console.log(user);
-                // setValue('profile_pic', user.profile_pic);
+                const user = response.data;
                 setValue('birth_date', user.birth_date);
                 setStartDate(new Date(user.birth_date));
                 setValue('gender', user.gender);
@@ -43,15 +42,13 @@ const UpdateUserForm = () => {
             data.birth_date = formattedDate;
 
             console.log(data);
-
-            // await axios.put('https://social-media-drf.onrender.com/accounts/update/', data);
             await axios.put('https://social-media-drf.onrender.com/accounts/update/', data, {
                 headers: {
                     Authorization: `Token ${token}`,
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            // Handle successful update, e.g., show a success message
+            toast.success('User details updated successfully!');
             navigate('/details');
         } catch (error) {
             console.error('Error updating user details:', error);
@@ -61,45 +58,64 @@ const UpdateUserForm = () => {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="p-6 max-w-md mx-auto bg-white rounded-md shadow-md">
-            {/* <label className="block text-sm font-medium text-gray-700 mb-1">Profile Picture</label>
-            <input type="file" {...register('profile_pic')} className="form-select mb-4 border rounded-md p-2" /> */}
+        <form onSubmit={handleSubmit(onSubmit)} className="py-10 px-10 max-w-xl mx-auto bg-sky-950 rounded-md shadow-md ">
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Birth Date</label>
-            {/* <input type="text" {...register('birth_date')} className="form-select mb-4 border rounded-md p-2" /> */}
-            <DatePicker
-                {...register('birth_date')}
-                selected={startDate}
-                onChange={(date) => {
-                    setStartDate(date);
-                    setValue('birth_date', date);
-                }}
-                className="form-select mb-4 border rounded-md p-2"
-            />
+            <h2 className="text-2xl text-center font-semibold mb-4 text-white">Update User</h2>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
-            <select {...register('gender')} className="form-select mb-4 border rounded-md p-2">
-                {genderOptions.map(option => (
-                    <option key={option} value={option}>{option}</option>
-                ))}
-            </select>
+            <div className='flex flex-col md:flex-row justify-between md:items-center  md:gap-6 '>
+                <div>
+                    <label className="block text-sm font-medium text-white mb-1">Birth Date</label>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Division</label>
-            <select {...register('division')} className="form-select mb-4 border rounded-md p-2">
-                {divisionOptions.map(option => (
-                    <option key={option} value={option}>{option}</option>
-                ))}
-            </select>
+                    <DatePicker
+                        {...register('birth_date')}
+                        selected={startDate}
+                        onChange={(date) => {
+                            setStartDate(date);
+                            setValue('birth_date', date);
+                        }}
+                        className="form-select mb-4 border rounded-md p-2 w-full bg-gray-800"
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm font-medium text-white mb-1 ">District</label>
+                    <input type="text" {...register('district')} className="form-select mb-4 border rounded-md p-2 bg-gray-800" />
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">District</label>
-            <input type="text" {...register('district')} className="form-select mb-4 border rounded-md p-2" />
+                </div>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-            <input type="text" {...register('phone')} className="form-select mb-4 border rounded-md p-2" />
+            </div>
 
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+
+
+            <div className='flex flex-col md:flex-row justify-between md:items-center  md:gap-6'>
+                <div>
+                    <label className="block text-sm font-medium text-white mb-1">Division</label>
+                    <select {...register('division')} className="form-select mb-4 border rounded-md p-2 bg-gray-800">
+                        {divisionOptions.map(option => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label className="block text-sm font-medium text-white mb-1">Gender</label>
+                    <select {...register('gender')} className="form-select mb-4 border rounded-md p-2 bg-gray-800 ">
+                        {genderOptions.map(option => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label className="block text-sm font-medium text-white mb-1">Phone</label>
+                    <input type="text" {...register('phone')} className="form-select mb-4 border rounded-md p-2 bg-gray-800" />
+
+                </div>
+
+            </div>
+
+           <div className='flex md:justify-center mt-6'>
+           <button type="submit" className="bg-white text-sky-900 font-bold py-2 px-20 md:px-56 rounded-md hover:bg-sky-300">
                 Update
             </button>
+           </div>
         </form>
     );
 };
