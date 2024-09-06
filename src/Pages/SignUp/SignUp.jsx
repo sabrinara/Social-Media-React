@@ -81,26 +81,26 @@ const SignUp = () => {
 
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded shadow-md w-3/4">
-                <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
+        <div className="flex items-center justify-center min-h-screen bg-sky-950">
+            <div className="py-8 px-2 md:p-8 rounded shadow-md w-3/4">
+                <h2 className="text-2xl font-semibold my-4 text-center text-white">Sign Up</h2>
                 <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="mb-4">
-                            <label htmlFor="username" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="username" className="block text-sm font-medium text-white">
                                 Username
                             </label>
                             <input
                                 type="text"
                                 id="username"
                                 {...register('username', { required: 'Username is required' })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.username ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.username ? 'border-red-500' : ''}`}
                             />
                             {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="email" className="block text-sm font-medium text-white">
                                 Email
                             </label>
                             <input
@@ -113,39 +113,39 @@ const SignUp = () => {
                                         message: 'Invalid email address',
                                     },
                                 })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.email ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.email ? 'border-red-500' : ''}`}
                             />
                             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="first_name" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="first_name" className="block text-sm font-medium text-white">
                                 First Name
                             </label>
                             <input
                                 type="text"
                                 id="first_name"
                                 {...register('first_name', { required: 'First Name is required' })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.first_name ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.first_name ? 'border-red-500' : ''}`}
                             />
                             {errors.first_name && <p className="text-red-500 text-xs mt-1">{errors.first_name.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="last_name" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="last_name" className="block text-sm font-medium text-white">
                                 Last Name
                             </label>
                             <input
                                 type="text"
                                 id="last_name"
                                 {...register('last_name', { required: 'Last Name is required' })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.last_name ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.last_name ? 'border-red-500' : ''}`}
                             />
                             {errors.last_name && <p className="text-red-500 text-xs mt-1">{errors.last_name.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="password" className="block text-sm font-medium text-white">
                                 Password
                             </label>
                             <input
@@ -158,13 +158,13 @@ const SignUp = () => {
                                         message: 'Password must be at least 6 characters long',
                                     },
                                 })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.password ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.password ? 'border-red-500' : ''}`}
                             />
                             {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="confirm_password" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="confirm_password" className="block text-sm font-medium text-white">
                                 Confirm Password
                             </label>
                             <input
@@ -174,32 +174,32 @@ const SignUp = () => {
                                     required: 'Confirm Password is required',
                                     validate: (value) => value === watch('password') || 'Passwords do not match',
                                 })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.confirm_password ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.confirm_password ? 'border-red-500' : ''}`}
                             />
                             {errors.confirm_password && <p className="text-red-500 text-xs mt-1">{errors.confirm_password.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="birth_date" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="birth_date" className="block text-sm font-medium text-white">
                                 Birth Date
                             </label>
                             <input
                                 type="date"
                                 id="birth_date"
                                 {...register('birth_date', { required: 'Birth Date is required' })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.birth_date ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.birth_date ? 'border-red-500' : ''}`}
                             />
                             {errors.birth_date && <p className="text-red-500 text-xs mt-1">{errors.birth_date.message}</p>}
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="gender" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="gender" className="block text-sm font-medium text-white">
                                 Gender
                             </label>
                             <select
                                 id="gender"
                                 {...register('gender', { required: 'Gender is required' })}
-                                className={`mt-1 p-2 w-full border rounded ${errors.gender ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.gender ? 'border-red-500' : ''}`}
                             >
                                 <option value="" disabled>Select your gender</option>
                                 <option value="Male">Male</option>
@@ -209,29 +209,30 @@ const SignUp = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="profile_pic" className="block text-sm font-medium text-gray-600">
+                            <label htmlFor="profile_pic" className="block text-sm font-medium text-white">
                                 Profile Picture
                             </label>
                             <input
                                 type="file"
                                 id="profile_pic"
                                 {...register('profile_pic')}
-                                className={`mt-1 p-2 w-full border rounded ${errors.profile_pic ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 w-full border rounded bg-gray-800 ${errors.profile_pic ? 'border-red-500' : ''}`}
                             />
                             {errors.profile_pic && <p className="text-red-500 text-xs mt-1">{errors.profile_pic.message}</p>}
                         </div>
                     </div>
 
-                    <button
+                  <div className='flex justify-center my-2'>
+                  <button
                         type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+                        className="bg-white text-sky-900 font-bold my-2 px-20 md:px-[18rem] py-2 rounded hover:bg-sky-300 focus:outline-none focus:shadow-outline-sky active:bg-sky-400 "
                         disabled={!Object.keys(errors).length === 0}
                     >
                         Sign Up
                     </button>
-
-                    <p className="mt-4 text-sm">
-                        Already have an account? <Link className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green active:bg-green-800" to="/login">Log In</Link>
+                  </div>
+                    <p className="my-4 text-sm">
+                        Already have an account? <Link className="bg-white text-sky-900 font-bold px-4 py-2 rounded hover:bg-sky-300 focus:outline-none focus:shadow-outline-sky active:bg-sky-400" to="/login">Log In</Link>
                     </p>
                 </form>
             </div>

@@ -82,7 +82,7 @@ const Login = () => {
                         <p className="mt-4 text-sm">
                             Don&apos;t have an account?
                             <span className='ml-2 mt-10'>
-                                <Link className="bg-white text-sky-900 font-bold px-4 py-2 rounded hover:bg-sky-300 focus:outline-none focus:shadow-outline-green active:bg-green-800  " to="/signUp">Sign Up</Link>
+                                <Link className="bg-white text-sky-900 font-bold px-4 py-2 rounded hover:bg-sky-300 focus:outline-none focus:shadow-outline-green active:bg-sky-400  " to="/signUp">Sign Up</Link>
                             </span>
                         </p>
                     </form>
