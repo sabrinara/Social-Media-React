@@ -7,21 +7,21 @@ const Dashboard = () => {
     return (
         <div>
             <Helmet>
-                <title>Phi Book | DashBoard</title>
+                <title>SocioLife | DashBoard</title>
             </Helmet>
 
             <DashNavBar />
 
-            <div className="flex">
+            <div className="flex bg-sky-950">
                 {/* Left Side */}
-                <div className="w-1/4 bg-gray-200 p-4">
+                <div className="md:w-1/6 bg-black md:p-4">
                     {/* Add content for the left side */}
                     <div className='flex items-center justify-center'>
                     </div>
                 </div>
 
                 {/* Middle Side */}
-                <div className="w-1/2 bg-gray-100 p-4">
+                <div className="md:w-3/4  md:p-4">
 
                     <div>
                         <Outlet />
@@ -29,7 +29,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Right Side */}
-                <div className="w-1/4 bg-gray-200 p-4">
+                <div className="md:w-1/6 bg-black md:p-4">
                     {/* Add content for the right side */}
                     <div className='flex items-center justify-center'>
                     </div>

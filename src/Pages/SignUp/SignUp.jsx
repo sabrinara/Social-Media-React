@@ -4,6 +4,7 @@ import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import useSweetAlert from '../../Hooks/useSweetAlert';
+import { toast } from 'react-toastify';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
@@ -70,7 +71,7 @@ const SignUp = () => {
                 },
             });
 
-            sweetAlert.showUserCreatedSuccessAlert();
+            toast.success("Check the email! Account created successfully");
             logOutAfterSignUp();
             navigate('/login');
         } catch (error) {

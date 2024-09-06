@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import useAllPost from '../../../../Hooks/useAllPost';
 
@@ -6,6 +6,7 @@ const LikeButton = ({ postId }) => {
     const [posts, refetch] = useAllPost();
     const [isLiked, setIsLiked] = useState(null);
     const token = localStorage.getItem('access-token');
+    console.log(token)
 
     useEffect(() => {
         const checkLikeStatus = async () => {

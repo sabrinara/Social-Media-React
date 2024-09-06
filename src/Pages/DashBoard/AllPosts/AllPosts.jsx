@@ -9,7 +9,7 @@ const AllPosts = () => {
     // const [posts, setPosts] = useState([]);
 
     const [posts] = useAllPost();
-    // console.log(posts);
+    console.log(posts);
 
     // const token = localStorage.getItem('access-token');
 
@@ -80,7 +80,7 @@ const AllPosts = () => {
                                     ></iframe>
                                 )}
                                 {/* <p className="mr-2">Like Count: {post.like_count}</p> */}
-                                <p className="mr-2">{post.like_count} ❤️</p>
+                                <p className="mr-2">{post?.like_count} ❤️</p>
                                 {/* <p className="mr-2">Count: {post.comment_count_value} Comments</p> */}
                                 <LikeButton postId={post.id} />
                                 {/* <p>Id: {post.id}</p> */}

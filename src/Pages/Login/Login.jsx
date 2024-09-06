@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import useSweetAlert from '../../Hooks/useSweetAlert';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,16 +13,19 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || "/";
 
-    const sweetAlert = useSweetAlert();
+
 
     const onSubmit = async (data) => {
         try {
             const result = await signIn(data.email, data.password);
+          
             const response = await axios.post('https://social-media-drf.onrender.com/accounts/login/', data);
             localStorage.setItem("access-token", response.data.token);
-            sweetAlert.showLoginSuccessAlert();
-            navigate(from, { replace: true });
+            toast.success('Login Successful');
+            navigate("/");
+           
         } catch (error) {
+            toast.error('Login Failed');
             console.error('Error logging in:', error);
         }
     };

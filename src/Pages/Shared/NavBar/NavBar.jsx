@@ -14,25 +14,25 @@ const NavBar = () => {
     }
 
     const navOptions = (
-        <ul className="flex flex-col md:flex-row justify-between items-start md:items-center ">
-            <li><Link to="/" className="text-white hover:text-gray-300">Home</Link></li>
+        <ul className="flex flex-col md:flex-row justify-between items-start md:items-center text-sky-200">
+            <li><Link to="/" className=" hover:text-sky-50">Home</Link></li>
 
             {user ? (
                   < >
-                  <li> <Link to='details' className="text-white hover:text-gray-300 mr-2">User Details</Link></li>
-                  <li> <Link to='posts' className="text-white hover:text-gray-300 mr-2">DashBoard</Link></li>
-                  <li onClick={handleLogOut}><Link to="/" className="text-white hover:text-gray-300">LogOut</Link></li>
+                  <li> <Link to='details' className=" mr-2 hover:text-sky-50">User Details</Link></li>
+                  <li> <Link to='posts' className=" mr-2 hover:text-sky-50">DashBoard</Link></li>
+                  <li onClick={handleLogOut}><Link to="/" className="hover:text-sky-50">LogOut</Link></li>
               </>
                 
             ) : (
-                <li><Link to="/login" className="text-white hover:text-gray-300">Login</Link></li>
+                <li><Link to="/login" className="">Login</Link></li>
             )}
         </ul>
     );
 
     return (
         <div>
-            <div className="navbar bg-opacity-30 bg-black text-white">
+            <div className="navbar bg-opacity-30 bg-black ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost md:hidden">
