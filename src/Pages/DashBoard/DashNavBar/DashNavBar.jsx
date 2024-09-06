@@ -14,7 +14,8 @@ const DashNavBar = () => {
     }
 
     const navOptions = (
-        <ul className="flex items-center">
+        <ul className="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <li><Link to="/" className="text-white hover:text-gray-300">Home</Link></li>
             <li><Link to="/posts/add" className="text-white hover:text-gray-300">Add Post</Link></li>
             <li><Link to="/posts/allPosts" className="text-white hover:text-gray-300">Posts</Link></li>
             <li><Link to="/posts/myPosts" className="text-white hover:text-gray-300">My Posts</Link></li>
@@ -45,18 +46,35 @@ const DashNavBar = () => {
                             </ul>
                         </div>
 
-                        <Link to='/' className="btn btn-ghost normal-case text-xl text-white">Social Canvas</Link>
+                        <Link to='/' >
+                            <div className='hidden md:flex items-center gap-2'>
+                                <img src="./logo.png" alt="logo" className='w-12 ' />
+                                <h1 className="text-2xl font-bold">
+                                    <span className="text-sky-500">S</span><span className="text-green-500">o</span><span className="text-red-500">c</span><span className="text-yellow-400">i</span><span className="text-teal-300">o</span><span className="text-orange-500">L</span><span className="text-violet-400">i</span><span className="text-blue-300">f</span><span className="text-amber-500">e</span></h1>
+
+                            </div>
+                        </Link>
                     </div>
 
-                    <div className="navbar-center hidden lg:flex">
+                    <div className="navbar-center flex md:hidden">
+                        <Link to='/' >
+                            <div className='flex items-center gap-2'>
+                                <img src="./logo.png" alt="logo" className='w-10 ' />
+                                <h1 className="text-2xl font-bold">
+                                    <span className="text-sky-500">S</span><span className="text-green-500">o</span><span className="text-red-500">c</span><span className="text-yellow-400">i</span><span className="text-teal-300">o</span><span className="text-orange-500">L</span><span className="text-violet-400">i</span><span className="text-blue-300">f</span><span className="text-amber-500">e</span></h1>
+
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="navbar-end hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {navOptions}
                         </ul>
                     </div>
-                    <div className="navbar-end">
-                        {user && <Link to='/details' className="text-white hover:text-gray-300 mr-4">User Details</Link>}
-                        {user && <Link to='' className="text-white hover:text-gray-300">Dashboard</Link>}
+                    <div className="flex md:hidden navbar-end">
+
                     </div>
+
                 </div>
             </div>
         </div>
