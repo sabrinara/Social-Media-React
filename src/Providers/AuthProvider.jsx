@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         setLoading(true);
         console.log('Logging out...');
-        return axios.get(' https://social-media-drf.onrender.com/accounts/logout/')
+        return axios.get('https://social-media-drf.onrender.com/accounts/logout/')
             .then(() => {
                 // After successful logout from the backend, also sign out from Firebase
                 console.log('Logged out successfully');
@@ -166,7 +166,7 @@ const AuthProvider = ({ children }) => {
 
     const updateUser = (data) => {
         setLoading(true);
-        return axios.put(' https://social-media-drf.onrender.com/accounts/update/', data)
+        return axios.put('https://social-media-drf.onrender.com/accounts/update/', data)
             .then(response => {
                 console.log('User updated successfully:', response.data);
             })

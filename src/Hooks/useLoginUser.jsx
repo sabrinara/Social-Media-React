@@ -6,7 +6,7 @@ const useLoginUser = () => {
     const { refetch, data: userData = {} } = useQuery({
         queryKey: ['getUserDetails'],
         queryFn: async () => {
-            const res = await fetch(' https://social-media-drf.onrender.com/accounts/user_detail/', {
+            const res = await fetch('https://social-media-drf.onrender.com/accounts/user_detail_view/', {
                 headers: {
                     Authorization: `Token ${token}`,
                 },
@@ -19,6 +19,7 @@ const useLoginUser = () => {
             return res.json();
         },
     });
+    console.log(userData);
 
     return [userData, refetch];
 };

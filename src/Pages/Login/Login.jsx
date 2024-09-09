@@ -20,7 +20,7 @@ const Login = () => {
         try {
             const result = await signIn(data.email, data.password);
 
-            const response = await axios.post(' https://social-media-drf.onrender.com/accounts/login/', data);
+            const response = await axios.post('https://social-media-drf.onrender.com/accounts/login/', data);
             localStorage.setItem('access-token', response.data.token);
 
             toast.success('Login Successful');

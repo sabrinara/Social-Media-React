@@ -15,7 +15,7 @@ const AddPost = () => {
             formData.append('image', data.image[0]);
             formData.append('video_url', data.videoUrl);
 
-            const response = await axios.post(' https://social-media-drf.onrender.com/posts/add-post/', formData, {
+            const response = await axios.post('https://social-media-drf.onrender.com/posts/add-post/', formData, {
                 headers: {
                     ...headers,
                     'Content-Type': 'multipart/form-data',

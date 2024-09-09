@@ -6,7 +6,7 @@ const useFetchReviews = () => {
         queryKey: ["reviews"],
         queryFn: async () => {
             try {
-                const response = await axios.get(" https://social-media-drf.onrender.com/reviews/all/");
+                const response = await axios.get("https://social-media-drf.onrender.com/reviews/all/");
                 return response.data;
             } catch (error) {
                 console.error("Error fetching reviews:", error);

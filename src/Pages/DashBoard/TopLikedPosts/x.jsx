@@ -8,7 +8,7 @@ const TopLikedPosts = () => {
     useEffect(() => {
         const fetchTopLikedPosts = async () => {
             try {
-                const response = await axios.get(' https://social-media-drf.onrender.com/posts/liked-posts/top/', {
+                const response = await axios.get('https://social-media-drf.onrender.com/posts/liked-posts/top/', {
                     headers: {
                         Authorization: `Token ${token}`,
                     },

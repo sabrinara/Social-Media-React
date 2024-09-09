@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import useLoginUser from '../../../../../Hooks/useLoginUser';
 
 const AddCommentComponent = ({ postId, fetchComments }) => {
     const [newComment, setNewComment] = useState("");
     const token = localStorage.getItem('access-token');
+    const [user] = useLoginUser();
 
     const handleAddComment = async (e) => {
         e.preventDefault(); // Prevents the default form submission behavior
@@ -24,7 +26,7 @@ const AddCommentComponent = ({ postId, fetchComments }) => {
             // console.log(typeof (postId))
 
             // const response = await axios.post(
-            //     `https:// https://social-media-drf.onrender.com/posts/comments/${postId}/`,
+            //     `https://https://social-media-drf.onrender.com/posts/comments/${postId}/`,
             //     // payload,
             //     JSON.stringify(payload),
             //     {
@@ -36,8 +38,12 @@ const AddCommentComponent = ({ postId, fetchComments }) => {
             // );
 
             const response = await axios.post(
-                ` https://social-media-drf.onrender.com/posts/comments/${postId}/`,
-                payload,
+                `https://social-media-drf.onrender.com/posts/comments/${postId}/`,
+                {
+                    user: user.id,  
+                    post: postId,
+                    content: newComment    
+                }, 
                 {
                     headers: {
                         'Content-Type': 'application/json',
