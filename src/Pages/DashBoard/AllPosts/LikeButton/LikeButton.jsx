@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useAllPost from '../../../../Hooks/useAllPost';
 
@@ -6,12 +6,11 @@ const LikeButton = ({ postId }) => {
     const [posts, refetch] = useAllPost();
     const [isLiked, setIsLiked] = useState(null);
     const token = localStorage.getItem('access-token');
-    console.log(token)
 
     useEffect(() => {
         const checkLikeStatus = async () => {
             try {
-                const response = await axios.get(`https://social-media-drf.onrender.com/posts/like/check/${postId}/`, {
+                const response = await axios.get(` https://social-media-drf.onrender.com/posts/like/check/${postId}/`, {
                     headers: {
                         Authorization: `Token ${token}`,
                     },
@@ -26,31 +25,20 @@ const LikeButton = ({ postId }) => {
         checkLikeStatus();
     }, [postId]);
 
-    // const handleLike = async () => {
-    //     try {
-    //         const response = await axios.post(`https://social-media-drf.onrender.com/posts/like/create/${postId}/`, {}, {
-    //             headers: {
-    //                 Authorization: `Token ${token}`,
-    //             },
-    //         });
-    //         console.log(response.data)
-    //         if (response.status === 200) {
-    //             setIsLiked(true);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error liking post:', error.message);
-    //     }
-    // };
+
 
     const handleLike = async () => {
         setIsLiked(true); // Update UI immediately
 
         try {
-            const response = await axios.post(`https://social-media-drf.onrender.com/posts/like/create/${postId}/`, {}, {
+            const response = await axios.post(`https://social-media-drf.onrender.com/posts/like/create/${postId}/`,{
+                
+            }, {
                 headers: {
                     Authorization: `Token ${token}`,
                 },
             });
+            console.log(response);
 
             // Check the response and handle any further actions if needed
             // console.log(response.data);
@@ -67,7 +55,7 @@ const LikeButton = ({ postId }) => {
 
     const handleUnlike = async () => {
         try {
-            const response = await axios.delete(`https://social-media-drf.onrender.com/posts/like/unlike/${postId}/`, {
+            const response = await axios.delete(` https://social-media-drf.onrender.com/posts/like/unlike/${postId}/`, {
                 headers: {
                     Authorization: `Token ${token}`,
                 },

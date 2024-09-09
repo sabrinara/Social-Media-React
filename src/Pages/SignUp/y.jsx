@@ -63,15 +63,15 @@ const SignUp = () => {
             };
 
             // Make a POST request to your Django backend
-            // const response = await axios.post('https://social-media-drf.onrender.com/accounts/register/', data);
-            // const response = await axios.post('https://social-media-drf.onrender.com/accounts/register/', postData);
-            const response = await axios.post('https://social-media-drf.onrender.com/accounts/register/', postData, {
+            // const response = await axios.post(' https://social-media-drf.onrender.com/accounts/register/', data);
+            // const response = await axios.post(' https://social-media-drf.onrender.com/accounts/register/', postData);
+            const response = await axios.post(' https://social-media-drf.onrender.com/accounts/register/', postData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
-            // const response = await axios.post('https://social-media-drf.onrender.com/accounts/register/', {
+            // const response = await axios.post(' https://social-media-drf.onrender.com/accounts/register/', {
             //     headers: {
             //         'Content-Type': 'multipart/form-data',
             //     },

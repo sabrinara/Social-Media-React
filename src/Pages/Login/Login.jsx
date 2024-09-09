@@ -20,10 +20,8 @@ const Login = () => {
         try {
             const result = await signIn(data.email, data.password);
 
-            const response = await axios.post('https://social-media-drf.onrender.com/accounts/login/', data);
-            //set the token in local storage with the expiration time
-            localStorage.setItem('access-token', response.data.access);
-            localStorage.setItem('refresh-token', response.data.refresh);
+            const response = await axios.post(' https://social-media-drf.onrender.com/accounts/login/', data);
+            localStorage.setItem('access-token', response.data.token);
 
             toast.success('Login Successful');
             navigate("/");
@@ -36,7 +34,7 @@ const Login = () => {
 
     return (
         <div className=" min-h-screen bg-sky-800">
-            <div className="flex flex-col-reverse md:flex-row items-center justify-center p-8 rounded shadow-md w-full max-w-screen-lg">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-center p-8 rounded shadow-md w-full">
                 <div className="w-full md:w-1/2">
                     <Lottie animationData={ani} loop={true} />
 

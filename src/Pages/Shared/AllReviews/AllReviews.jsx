@@ -20,7 +20,7 @@ const AllReviews = () => {
 
     const onSubmit = async (data) => {
         try {
-            await axios.post("https://social-media-drf.onrender.com/reviews/add/", data);
+            await axios.post(" https://social-media-drf.onrender.com/reviews/add/", data);
             // console.log("Review submitted successfully:", data);
         } catch (error) {
             console.error("Error submitting review:", error);

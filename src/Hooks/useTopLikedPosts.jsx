@@ -6,7 +6,7 @@ const useTopLikedPosts = () => {
     const { refetch, data: topLikedPosts = [] } = useQuery({
         queryKey: ['getTopLikedPosts'],
         queryFn: async () => {
-            const res = await fetch(`https://social-media-drf.onrender.com/posts/liked-posts/top/`, {
+            const res = await fetch(` https://social-media-drf.onrender.com/posts/liked-posts/top/`, {
                 // headers: {
                 //     Authorization: `Token ${token}`,
                 // },

@@ -16,7 +16,7 @@ const UpdateUserForm = () => {
 
     useEffect(() => {
         // Fetch user details and set form values
-        axios.get('https://social-media-drf.onrender.com/accounts/update/', {
+        axios.get(' https://social-media-drf.onrender.com/accounts/update/', {
             headers: {
                 Authorization: `Token ${token}`,
             },
@@ -44,8 +44,8 @@ const UpdateUserForm = () => {
 
             console.log(data);
 
-            // await axios.put('https://social-media-drf.onrender.com/accounts/update/', data);
-            await axios.put('https://social-media-drf.onrender.com/accounts/update/', data, {
+            // await axios.put(' https://social-media-drf.onrender.com/accounts/update/', data);
+            await axios.put(' https://social-media-drf.onrender.com/accounts/update/', data, {
                 headers: {
                     Authorization: `Token ${token}`,
                     'Content-Type': 'multipart/form-data',

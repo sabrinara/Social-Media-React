@@ -12,7 +12,7 @@ const UserDetail = () => {
         const fetchUserDetails = async () => {
             try {
 
-                const response = await axios.get('https://social-media-drf.onrender.com/accounts/user_detail/', {
+                const response = await axios.get(' https://social-media-drf.onrender.com/accounts/user_detail/', {
                     headers: {
 
                         Authorization: `Token ${token}`,
@@ -27,7 +27,7 @@ const UserDetail = () => {
 
         fetchUserDetails();
     }, []);
-    console.log(userData);
+    // console.log(userData);
 
     return (
         <div className="container mx-auto mt-8 p-4 bg-sky-950 rounded shadow-md">
@@ -43,7 +43,7 @@ const UserDetail = () => {
                         {userData.profile_pic && (
                             <div>
 
-                                <img src={`https://social-media-drf.onrender.com/media/${userData.profile_pic}`} alt="Profile" className='w-48 md:w-80 rounded-full md:rounded' />
+                                <img src={` https://social-media-drf.onrender.com/media/${userData.profile_pic}`} alt="Profile" className='w-48 md:w-80 rounded-full md:rounded' />
                             </div>
                         )}
                     </div>

@@ -18,7 +18,7 @@ const EditPostModal = ({ selectedPost, closeModal }) => {
     useEffect(() => {
         const token = localStorage.getItem('access-token');
         if (token && selectedPost) {
-            axios.get(`https://social-media-drf.onrender.com/posts/my-posts/update/${selectedPost.id}`, {
+            axios.get(` https://social-media-drf.onrender.com/posts/my-posts/update/${selectedPost.id}`, {
                 headers: {
                     Authorization: `Token ${token}`,
                 },
@@ -41,7 +41,7 @@ const EditPostModal = ({ selectedPost, closeModal }) => {
 
             // console.log('formData: ', formData);
 
-            axios.put(`https://social-media-drf.onrender.com/posts/my-posts/update/${selectedPost.id}`, formData, {
+            axios.put(` https://social-media-drf.onrender.com/posts/my-posts/update/${selectedPost.id}`, formData, {
                 headers: {
                     Authorization: `Token ${token}`,
                     'Content-Type': 'multipart/form-data',

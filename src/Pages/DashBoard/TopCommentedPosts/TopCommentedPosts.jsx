@@ -11,7 +11,7 @@ const TopCommentedPosts = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://social-media-drf.onrender.com/posts/commented-posts/top/');
+                const response = await fetch(' https://social-media-drf.onrender.com/posts/commented-posts/top/');
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -55,7 +55,7 @@ const TopCommentedPosts = () => {
                     <SwiperSlide key={post.id}>
                         <img
                             // src={post.image}
-                            src={`https://social-media-drf.onrender.com${post.image}`}
+                            src={` https://social-media-drf.onrender.com${post.image}`}
                             alt={`Commented Post ${post.id}`}
                             style={{
                                 objectFit: 'cover',
