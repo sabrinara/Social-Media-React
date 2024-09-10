@@ -23,7 +23,7 @@ const EditPostModal = ({ selectedPost, closeModal }) => {
     useEffect(() => {
         const token = localStorage.getItem('access-token');
         if (token && selectedPost) {
-            axios.get(`https://social-media-drf.onrender.com/posts/my-posts/update/${selectedPost.id}`, {
+            axios.get(` http://127.0.0.1:8000/posts/my-posts/update/${selectedPost.id}`, {
                 headers: {
                     Authorization: `Token ${token}`,
                 },
@@ -37,7 +37,7 @@ const EditPostModal = ({ selectedPost, closeModal }) => {
         const token = localStorage.getItem('access-token');
         if (token && selectedPost) {
             // Assuming you have an API endpoint to handle post updates
-            axios.put(`https://social-media-drf.onrender.com/posts/my-posts/update/${selectedPost.id}`, editedData, {
+            axios.put(` http://127.0.0.1:8000/posts/my-posts/update/${selectedPost.id}`, editedData, {
                 headers: {
                     Authorization: `Token ${token}`,
                     'Content-Type': 'multipart/form-data',

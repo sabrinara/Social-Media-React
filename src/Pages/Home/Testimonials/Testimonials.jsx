@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import "swiper/css/navigation";
 
-
 import { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'

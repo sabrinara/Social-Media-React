@@ -7,7 +7,7 @@ const useAPost = (postId) => {
         queryKey: ['getPost', postId],
         queryFn: async () => {
             if (!postId) throw new Error('Post ID is required');
-            const res = await fetch(`https://social-media-drf.onrender.com/posts/${postId}/`, {
+            const res = await fetch(` http://127.0.0.1:8000/posts/${postId}/`, {
                 headers: {
                     Authorization: `Token ${token}`,
                 },
