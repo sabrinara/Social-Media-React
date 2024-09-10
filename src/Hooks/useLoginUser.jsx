@@ -6,7 +6,7 @@ const useLoginUser = () => {
     const { refetch, data: userData = {} } = useQuery({
         queryKey: ['getUserDetails'],
         queryFn: async () => {
-            const res = await fetch(' http://127.0.0.1:8000/accounts/user_detail_view/', {
+            const res = await fetch(' https://social-media-drf.onrender.com/accounts/user_detail_view/', {
                 headers: {
                     Authorization: `Token ${token}`,
                 },

@@ -26,7 +26,7 @@ const AddCommentComponent = ({ postId, fetchComments }) => {
             // console.log(typeof (postId))
 
             // const response = await axios.post(
-            //     `https:// http://127.0.0.1:8000/posts/comments/${postId}/`,
+            //     `https:// https://social-media-drf.onrender.com/posts/comments/${postId}/`,
             //     // payload,
             //     JSON.stringify(payload),
             //     {
@@ -38,7 +38,7 @@ const AddCommentComponent = ({ postId, fetchComments }) => {
             // );
 
             const response = await axios.post(
-                ` http://127.0.0.1:8000/posts/comments/${postId}/`,
+                `https://social-media-drf.onrender.com/posts/comments/${postId}/`,
                 {
                     user: user.id,  
                     post: postId,

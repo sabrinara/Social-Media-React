@@ -35,9 +35,10 @@ const Testimonials = () => {
 
     return (
         <div>
-            <div className="mx-auto text-center md:w-4/12 my-10">
-                <h3 className="text-3xl text-center uppercase border-y-4 font-bold py-4">TESTIMONIALS</h3>
+             <div className="ml-10 md:w-3/12 mb-10 mt-20">
+                <h2 className="text-3xl text-start uppercase border-t-4 border-sky-700 text-sky-500 font-bold py-2">User Experience!</h2>
             </div>
+          
             {isLoading ? (
                 // Show loading indicator
                 <div>Loading...</div>

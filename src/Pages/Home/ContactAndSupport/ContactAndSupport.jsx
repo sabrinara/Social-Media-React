@@ -10,9 +10,10 @@ function ContactAndSupport() {
 
     return (
         <div className="my-10">
-            <div className="mx-auto text-center md:w-4/12 my-10">
-                <h2 className="text-3xl text-center uppercase border-y-4 font-bold py-4">Contact and Support</h2>
+             <div className="ml-10 md:w-4/12 my-10">
+                <h2 className="text-3xl text-start uppercase border-t-4 border-sky-700 text-sky-500 font-bold py-2">Contact and Support</h2>
             </div>
+            
             <div className="max-w-4xl mx-auto px-4 mb-8">
                 {/* <h2 className="text-3xl text-center font-bold mb-8">Contact and Support</h2> */}
                 <div className="flex flex-col sm:flex-row items-center justify-center">

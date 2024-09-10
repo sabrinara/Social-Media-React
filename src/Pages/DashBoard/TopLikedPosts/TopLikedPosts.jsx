@@ -15,7 +15,7 @@ const TopLikedPosts = () => {
     // useEffect(() => {
     //     const fetchTopLikedPosts = async () => {
     //         try {
-    //             const response = await axios.get(' http://127.0.0.1:8000/posts/liked-posts/top/', {
+    //             const response = await axios.get(' https://social-media-drf.onrender.com/posts/liked-posts/top/', {
     //                 // headers: {
     //                 //     Authorization: `Token ${token}`,
     //                 // },
@@ -33,17 +33,13 @@ const TopLikedPosts = () => {
     // }, []);
 
     return (
-        <div>
+        <div className='mx-10'>
             <div>
 
                 <div className='my-10'>
-                    {/* <div>
-                        <h1 className='text-5xl text-center mb-10'>Top Liked Posts</h1>
-                    </div> */}
-
-                    <div className="mx-auto text-center md:w-4/12 my-8">
-                        <h3 className="text-3xl text-center uppercase border-y-4 font-bold py-4">Top Liked Posts</h3>
-                    </div>
+                <div className=" md:w-3/12 mb-10 mt-20">
+                <h2 className="text-3xl text-start uppercase border-t-4 border-sky-700 text-sky-500 font-bold py-2">Top Liked Posts</h2>
+            </div>
 
                     <Swiper
                         slidesPerView={3}

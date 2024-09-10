@@ -6,7 +6,7 @@ const useRecentPosts = () => {
     const { refetch, data: recentPosts = [] } = useQuery({
         queryKey: ['getRecentPosts'],
         queryFn: async () => {
-            const res = await fetch(` http://127.0.0.1:8000/posts/recent-posts/`, {
+            const res = await fetch(` https://social-media-drf.onrender.com/posts/recent-posts/`, {
                 headers: {
                     Authorization: `Token ${token}`,
                 },
