@@ -6,9 +6,11 @@ import Testimonials from "../Testimonials/Testimonials";
 import ContactAndSupport from "../ContactAndSupport/ContactAndSupport";
 import Banner from "../Banner/Banner";
 import EventCalendar from "./EventCalendar/EventCalendar";
+import RoadMap from "../RoadMap";
 
 const Home = () => {
     const { user } = useAuth();
+    console.log(user);
 
 
     return (
@@ -21,6 +23,9 @@ const Home = () => {
 
             <div className=" ">
                 <Banner />
+                {
+                    user && <RoadMap />
+                }
 
                 <TopLikedPosts />
 

@@ -3,7 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-coverflow'; // Import the coverflow effect
+import 'swiper/css/effect-coverflow'; 
+import Marquee from 'react-fast-marquee';
 
 const TopCommentedPosts = () => {
     const [posts, setPosts] = useState([]);
@@ -19,7 +20,7 @@ const TopCommentedPosts = () => {
 
                 const data = await response.json();
 
-                // Filter and map the data to include only posts with comment_count_value > 0
+
                 const filteredData = data
                     .filter((post) => post.comment_count_value > 0)
                     .map((post) => ({
@@ -32,7 +33,7 @@ const TopCommentedPosts = () => {
                         content: post.content,
                     }));
 
-                // Sort the filtered posts by comment_count_value in descending order
+
                 const sortedData = filteredData.sort((a, b) => a.comment_count_value - b.comment_count_value);
 
                 setPosts(sortedData);
@@ -44,10 +45,10 @@ const TopCommentedPosts = () => {
 
         fetchData();
     }, []);
-    
+
     return (
         <div className='my-10 md:my-20'>
-           <div className="ml-10 md:w-4/12 my-10">
+            <div className="ml-10 md:w-4/12 my-10">
                 <h2 className="text-3xl text-start uppercase border-t-4 border-sky-700 text-sky-500 font-bold py-2">Top Commented Posts</h2>
             </div>
             {/* <Swiper
@@ -82,22 +83,22 @@ const TopCommentedPosts = () => {
                     </SwiperSlide>
                 ))}
             </Swiper> */}
-           <div className="grid grid-cols-1 md:grid-cols-3  gap-1 mx-6">
-           {posts.slice(0, 4).map((post) => (
-                <div key={post.id} className="flex flex-col justify-center items-center transform hover:scale-105 transition-transform duration-30">
-                <div className="px-3 bg-neutral-900 h-[20rem] rounded-full md:w-80 hover:bg-sky-950">
-                    <div className="relative">
-                        <img src={`https://social-media-drf.onrender.com${post.image}`} alt={`Commented Post ${post.id}`} className="rounded-full h-[19rem] w-80" />
-                    </div>
-                </div>
-                <div className="pt-4 px-10 text-center">
-                    <h1 className="text-xl font-bold text-sky-950">{post.content}</h1>
-                    {/* <p>{post.content}</p> */}
-                </div>
+            <Marquee className='mt-2 '>
+                {posts.map((post) => (
+                    <div key={post.id} className="flex flex-col mx-5 justify-center items-center transform hover:scale-105 transition-transform duration-30">
+                        <div className="px-3 bg-neutral-900 h-[20rem] rounded-full md:w-80 hover:bg-sky-950">
+                            <div className="relative">
+                                <img src={`https://social-media-drf.onrender.com${post.image}`} alt={`Commented Post ${post.id}`} className="rounded-full h-[19rem] w-80" />
+                            </div>
+                        </div>
+                        <div className="pt-4 px-10 text-center">
+                            <h1 className="text-xl font-bold text-sky-950">{post.content}</h1>
+                            {/* <p>{post.content}</p> */}
+                        </div>
 
-            </div>
-            ))}
-           </div>
+                    </div>
+                ))}
+            </Marquee>
         </div>
     );
 };
