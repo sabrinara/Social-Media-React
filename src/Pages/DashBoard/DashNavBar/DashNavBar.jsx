@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
@@ -8,7 +7,6 @@ const DashNavBar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                // Redirect the user to the login page or any other appropriate page after logout
             })
             .catch(error => console.log(error));
     }
@@ -48,7 +46,7 @@ const DashNavBar = () => {
 
                         <Link to='/' >
                             <div className='hidden md:flex items-center gap-2'>
-                                <img src="./logo.png" alt="logo" className='w-12 ' />
+                                <img src="./logo.png" alt="logo" className='w-12 ml-10' />
                                 <h1 className="text-2xl font-bold">
                                     <span className="text-sky-500">S</span><span className="text-green-500">o</span><span className="text-red-500">c</span><span className="text-yellow-400">i</span><span className="text-teal-300">o</span><span className="text-orange-500">L</span><span className="text-violet-400">i</span><span className="text-blue-300">f</span><span className="text-amber-500">e</span></h1>
 

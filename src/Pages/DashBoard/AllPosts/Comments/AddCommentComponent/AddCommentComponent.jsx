@@ -40,10 +40,10 @@ const AddCommentComponent = ({ postId, fetchComments }) => {
             const response = await axios.post(
                 `https://social-media-drf.onrender.com/posts/comments/${postId}/`,
                 {
-                    user: user.id,  
+                    user: user.id,
                     post: postId,
-                    content: newComment    
-                }, 
+                    content: newComment
+                },
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -66,17 +66,25 @@ const AddCommentComponent = ({ postId, fetchComments }) => {
     };
 
     return (
-        <form onSubmit={handleAddComment}>
-            <input
-                type="text"
-                placeholder="Enter your comment"
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-            />
-            <button type="submit">
-                Add Comment
-            </button>
-        </form>
+        <div >
+            <form onSubmit={handleAddComment}>
+                <div className="flex justify-center items-center gap-2">
+                    <input
+                        type="text"
+                        placeholder="Enter your comment"
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        className='w-3/4 md:w-2/3 p-2 border border-sky-950 bg-sky-50 rounded-md'
+                    />
+                    <button type="submit" className='hidden md:flex w-1/3 bg-sky-950 text-white px-4 py-3 rounded-md text-sm' >
+                        Add Comment
+                    </button>
+                    <button type="submit" className='flex md:hidden w-1/4 bg-sky-950 text-white px-6 py-3 rounded-md text-sm' >
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 };
 

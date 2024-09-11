@@ -12,28 +12,13 @@ const Dashboard = () => {
 
             <DashNavBar />
 
-            <div className="flex bg-sky-950 min-h-screen">
-                {/* Left Side */}
-                <div className="md:w-1/6 bg-black md:p-4">
-                    {/* Add content for the left side */}
-                    <div className='flex items-center justify-center'>
-                    </div>
-                </div>
-
-                {/* Middle Side */}
-                <div className="md:w-3/4  md:p-4">
+            <div className=" bg-sky-950 min-h-screen ">
+               
 
                     <div>
                         <Outlet />
                     </div>
-                </div>
-
-                {/* Right Side */}
-                <div className="md:w-1/6 bg-black md:p-4">
-                    {/* Add content for the right side */}
-                    <div className='flex items-center justify-center'>
-                    </div>
-                </div>
+               
             </div>
             
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  {  useState } from 'react';
 import axios from 'axios';
 import EditPostModal from './EditPostModal/EditPostModal';
 import useMyPost from '../../../Hooks/useMyPost';
@@ -9,42 +9,6 @@ const MyPosts = () => {
     const [posts, refetch] = useMyPost();
 
     const [selectedPost, setSelectedPost] = useState(null);
-
-    // useEffect(() => {
-    //     // Check if token exists before making the request
-    //     const token = localStorage.getItem('access-token');
-    //     if (token) {
-    //         // Fetch the user's posts from the Django API with the Authorization header
-    //         axios.get(' https://social-media-drf.onrender.com/posts/my-posts/', {
-    //             headers: {
-    //                 Authorization: `Token ${token}`,
-    //             },
-    //         })
-    //             .then(response => setPosts(response.data))
-    //             .catch(error => console.error('Error fetching posts:', error));
-    //     }
-    // }, []);
-
-    // const openEditModal = (postId) => {
-    //     const token = localStorage.getItem('access-token');
-    //     if (token) {
-    //         axios.get(` https://social-media-drf.onrender.com/posts/my-posts/update/${postId}`, {
-    //             headers: {
-    //                 Authorization: `Token ${token}`,
-    //             },
-    //         })
-    //             .then(response => {
-    //                 setSelectedPost(response.data);
-    //                 document.getElementById('my_modal_3').showModal();
-    //             })
-    //             .catch(error => console.error('Error fetching post data:', error));
-    //     }
-    // };
-
-    // const closeEditModal = () => {
-    //     setSelectedPost(null);
-    //     document.getElementById('my_modal_3').close();
-    // };
 
     const openEditModal = (postId) => {
         setSelectedPost({ id: postId });
@@ -82,30 +46,41 @@ const MyPosts = () => {
     };
 
     return (
-        <div className="container mx-auto p-4">
+        <div className=" md:px-20 py-4">
             {
                 posts.length === 0 ? (
                     <div className="flex justify-center items-center h-[70vh]">
-                        <h2 className="text-3xl font-bold mb-4 text-center">No Posts</h2>
+                        <h2 className="text-3xl font-bold my-20 text-center">No Posts</h2>
                     </div>
                 )
                     : (
-                        <h1 className="text-3xl font-bold mb-4 text-center">My Posts</h1>
+                        <h1 className="text-3xl font-bold my-8 text-center">My Posts</h1>
                     )
             }
 
-            {Array.isArray(posts) && posts.map(post => (
-                <div key={post.id} className="bg-white rounded-md shadow-md mb-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
+        {Array.isArray(posts) && posts.map(post => (
+                <div key={post.id} className="bg-white rounded-md shadow-md mb-4 p-10">
                     <p className="text-lg font-semibold mb-2">{post.content}</p>
                     {/* <p>Likes: {post.like_count}</p>
                     <p>Comments: {post.comment_count_value}</p> */}
+                    <div className="flex justify-between">
                     <div className="flex items-center mb-2">
                         <span className="mr-2">{post.like_count} ❤️</span>
                         <span>{post.comment_count_value} 💬</span>
                     </div>
+                    <div className="flex mt-2">
+                        <button
+                            onClick={() => openEditModal(post.id)}
+                            className="text-sm bg-blue-500 text-white py-1 px-2 rounded mr-2">Edit</button>
+                        <button
+                            onClick={() => handleDeletePost(post.id)}
+                            className="text-sm bg-red-500 text-white py-1 px-2 rounded">Delete</button>
+                    </div>
+                    </div>
                     {/* <p>{post.image}</p> */}
                     {post.image && (
-                        <img src={post.image} alt="Post Image" className="mt-2 rounded-md" />
+                        <img src={post.image} alt="Post Image" className="mt-2 rounded-md h-[70vh] w-[84vh]" />
                     )}
                     {post.video_url && (
                         <iframe
@@ -119,16 +94,10 @@ const MyPosts = () => {
                             className="mt-2 rounded-md"
                         ></iframe>
                     )}
-                    <div className="flex mt-2">
-                        <button
-                            onClick={() => openEditModal(post.id)}
-                            className="text-sm bg-blue-500 text-white py-1 px-2 rounded mr-2">Edit</button>
-                        <button
-                            onClick={() => handleDeletePost(post.id)}
-                            className="text-sm bg-red-500 text-white py-1 px-2 rounded">Delete</button>
-                    </div>
+                    
                 </div>
             ))}
+        </div>
 
             <div>
                 <EditPostModal selectedPost={selectedPost} closeModal={closeEditModal} />

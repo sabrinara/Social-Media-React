@@ -39,11 +39,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'details',
-                element: <UserDetail />
+                element: <PrivateRoute><UserDetail /></PrivateRoute>
             },
             {
                 path: 'updateProfile',
-                element: <UpdateUserForm />
+                element: <PrivateRoute><UpdateUserForm /></PrivateRoute>
             },
             {
                 path: 'all-reviews',
@@ -57,32 +57,25 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/posts',
-                element: <DashBoardPage />
+                element: <PrivateRoute><DashBoardPage /></PrivateRoute>
             },
             {
                 path: 'add',
-                element: <AddPost />
+                element: <PrivateRoute><AddPost /></PrivateRoute>
             },
             {
                 path: 'myPosts',
-                element: <MyPosts />
+                element: <PrivateRoute><MyPosts /></PrivateRoute>
             },
             {
                 path: 'allPosts',
-                element: <AllPosts />
+                element: <PrivateRoute><AllPosts /></PrivateRoute>
             },
             {
                 path: 'myLikedPosts',
-                element: <UserLikedPosts />
+                element: <PrivateRoute><UserLikedPosts /></PrivateRoute>
             },
-            // {
-            //     path: 'topLikedPosts',
-            //     element: <TopLikedPosts />
-            // },
-            // {
-            //     path: 'topCommentedPosts',
-            //     element: <TopCommentedPosts />
-            // },
+           
         ]
     }
 ]);

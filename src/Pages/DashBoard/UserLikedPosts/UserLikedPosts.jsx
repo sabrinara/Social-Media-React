@@ -31,38 +31,29 @@ const UserLikedPosts = () => {
             <div>
                 {
                     likedPosts.length === 0 ? (
-                        <div className="text-2xl font-bold mb-4 flex justify-center items-center h-[70vh]">
+                        <div className="text-2xl font-bold py-20 flex justify-center items-center h-[70vh]">
                             <h1> No liked posts found. </h1>
                         </div>
                     )
-                        : <h1>User Liked Posts</h1>
+                        : <h1 className="text-3xl font-bold pt-10  text-center">My Liked Posts</h1>
                 }
             </div >
-            <ul>
-                {likedPosts.map(post => (
-                    <li key={post.id}>
-                        <p>User: {post.user.first_name} {post.user.last_name}</p>
-                        <p>Content: {post.content}</p>
-                        {post.image && (
-                            <img src={post.image} alt="Post Image" style={{ maxWidth: '100%' }} />
-                        )}
-                        {post.video_url && (
-                            <iframe
-                                title={`Video for Post ${post.id}`}
-                                width="100%"
-                                height="315"
-                                src={post.video_url}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
-                        )}
-                        <p>Like Count: {post.like_count}</p>
-                        <p>Comment Count: {post.comment_count}</p>
-                        <hr />
-                    </li>
-                ))}
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 px-4 py-10 gap-4">
+            {likedPosts.map((post) => (
+              <div key={post.id} className="bg-sky-50 rounded-lg shadow-md p-8">
+                <img src={post.image} alt={post.content} className="w-full h-[80vh] object-cover rounded-md mb-4" />
+              <div className="flex justify-between items-center " >
+              <h3 className="text-lg font-semibold mb-2">{post.content}</h3>
+              <p className="text-gray-600 text-sm">{`Posted by ${post.user.first_name} ${post.user.last_name}`}</p>
+              </div>
+              <div className="flex justify-between">
+              <p className="text-gray-600 text-lg">{`❤️ ${post.like_count}`}</p>
+              <p className="text-gray-600 text-lg">{` 💬 ${post.comment_count_value}`}</p>
+              </div>
+              </div>
+            ))}
+          </div>
+          
         </div >
     );
 };

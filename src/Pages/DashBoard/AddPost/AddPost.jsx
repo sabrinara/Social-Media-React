@@ -46,8 +46,9 @@ const AddPost = () => {
     };
 
     return (
-        <div className='mt-20'>
-            <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}
+        <div className='pt-20 flex justify-center'>
+           
+            <div style={{  margin: 'auto', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}
             className=''
             >
                 <h2 style={{ textAlign: 'center', marginBottom: '20px' }} className='text-3xl'>Add a New Post</h2>
