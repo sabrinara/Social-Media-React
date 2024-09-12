@@ -23,9 +23,7 @@ const Home = () => {
 
             <div className=" ">
                 <Banner />
-                {
-                    user && <RoadMap />
-                }
+                <RoadMap />
 
                 <TopLikedPosts />
 
